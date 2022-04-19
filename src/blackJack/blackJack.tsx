@@ -7,8 +7,8 @@ import {
   suitesAndValues,
   suitsToUnicode,
 } from "./cardFunctions";
-import { Card } from "./cardInterfaces";
-const displayCard = (suit:string, rank:(string | number))=>{
+import { Card, Rank } from "./cardInterfaces";
+const displayCard = (suit:string, rank:Rank)=>{
  return <div className={`card rank-${rank} ${suit}`}>
            <span className="rank">{rank}</span>
            <span className="suit">{suitsToUnicode(suit,rank)}</span>

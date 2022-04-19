@@ -1,5 +1,5 @@
-import {Card} from  "./cardInterfaces"
-export const getValueOfCard = (val: string | number): number => {
+import {Card, Rank, Suit} from  "./cardInterfaces"
+export const getValueOfCard = (val: Rank): number => {
     switch (val) {
       case "a":
         return 11;
@@ -12,8 +12,8 @@ export const getValueOfCard = (val: string | number): number => {
     }
   };
   export const individualSuites = (
-    suites: string[],
-    valuesOfSuites: (string | number)[]
+    suites: Suit[],
+    valuesOfSuites: Rank[]
   ): Card[] => {
     let mergedSuiteValues: Card[] = [];
     for (let index = 0; index < suites.length; index++) {
@@ -83,8 +83,8 @@ if (rank == "k" || rank == "q" || rank == "j" ){
 
 
 }
-  let suites = ["spades", "clubs", "diams", "hearts"];
-  const valuesOfSuites = [
+  let suites:Suit[] = ["spades", "clubs", "diams", "hearts"];
+  const valuesOfSuites:Rank[] = [
     "a",
     2,
     3,
