@@ -1,24 +1,25 @@
-import { Card, cardsDealt, gameResults, getValueOfCard, individualSuites, isGameOver, suites, valuesOfSuites } from "../blackJack";
+import { cardsDealt, gameResults, getValueOfCard, individualSuites, isGameOver, suites, valuesOfSuites } from "../blackJack";
+import { Card } from "../shared/cardInterfaces";
 
 describe("cardfunctions Tests - getValueOfCard", () => {
   test(" check ace value", () => {
-    const val = getValueOfCard("a");
+    const val = getValueOfCard("a", true);
     expect(val).toEqual(11);
   });
   test ("chack queen value",()=>{
-      const val = getValueOfCard("q");
+      const val = getValueOfCard("q", true);
       expect(val).toEqual(10);
   })
   test ("check jack value", ()=>{
-      const val = getValueOfCard("j");
+      const val = getValueOfCard("j" , true);
       expect(val).toEqual(10);
   })
   test ("check king value",()=>{
-      const val = getValueOfCard("k");
+      const val = getValueOfCard("k", true);
       expect(val).toEqual(10);
   })
   test ("check default value",()=>{
-    const val = getValueOfCard(2);
+    const val = getValueOfCard(2, true);
     expect(val).toEqual(2);
   })
 });

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { cardsDealt, suitsToUnicode } from "../puzzleGame/puzzleGameFunctions";
-import { Card } from "../puzzleGame/cardInterfaces";
 import { Point, DisplayCard } from "./displayPuzzleCard";
+import { Card } from "../shared/cardInterfaces";
 
 let IntialpuzzlePieces: Card[] = [
   { rank: "a", suit: "hearts", value: 1 },
