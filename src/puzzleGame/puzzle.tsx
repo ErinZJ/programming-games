@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { cardsDealt, suitsToUnicode } from "./cardFunctions";
-import { Card } from "./cardInterfaces";
+import { cardsDealt, suitsToUnicode } from "../puzzleGame/puzzleGameFunctions";
+import { Card } from "../puzzleGame/cardInterfaces";
 import { Point, DisplayCard } from "./displayPuzzleCard";
 
 let IntialpuzzlePieces: Card[] = [
