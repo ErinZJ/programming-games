@@ -1,13 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Card, Rank } from "../shared/cardInterfaces";
 import {
   cardsDealt,
   isGameOver,
   gameResults,
   suitesAndValues,
   suitsToUnicode,
+  getValueOfCard,
+  checkForAce,
 } from "./cardFunctions";
-import { Card, Rank } from "./cardInterfaces";
+
 const displayCard = (suit:string, rank:Rank)=>{
  return <div className={`card rank-${rank} ${suit}`}>
            <span className="rank">{rank}</span>
@@ -18,7 +21,8 @@ export function BlackJack() {
   const [userHasHold, setUserHasHold] = useState(false);
   const [userCards, setUserCards] = useState<Card[]>([]);
   const [houseCards, setHouseCards] = useState<Card[]>([]);
-
+  const [userHighAce, setUserHighAce] = useState(false);
+  const [houseHighAce, setHouseHighAce] = useState(false);
   useEffect(() => {
     handleReset();
   }, []);
@@ -39,24 +43,39 @@ export function BlackJack() {
   const handleHold = () => {
     setUserHasHold(true);
   };
-  const totalCards = (userCards: Card[]) => {
+  const handleUserToggle = ()=>{
+    setUserHighAce(!userHighAce)
+    
+  }
+  const handleHouseToggle=()=>{
+    setHouseHighAce(!houseHighAce)
+  }
+  const totalCards = (cards: Card[],highAce:boolean) => {
     let sumOfCards = 0;
-    for (let index = 0; index < userCards.length; index++) {
-      const element = userCards[index];
-      sumOfCards = sumOfCards + element.value;
+    for (let index = 0; index < cards.length; index++) {
+      const element = cards[index];
+      sumOfCards = sumOfCards + getValueOfCard(element.rank,highAce);
     }
     return sumOfCards;
   };
 
-  const sumOfUserCards = totalCards(userCards);
+  const sumOfUserCards = totalCards(userCards,userHighAce);
   const canUserPlay = !(sumOfUserCards >= 21) && !userHasHold;
-  const sumOfHouseCards = totalCards(houseCards);
+  const sumOfHouseCards = totalCards(houseCards,houseHighAce);
   const canHousePlay = sumOfHouseCards <= 16;
 
   const isGame = isGameOver(userHasHold, sumOfUserCards, sumOfHouseCards);
-
+const userHasAce = checkForAce(userCards)
+const houseHasAce = checkForAce(houseCards)
   return (
     <div>
+      <button
+      type="button"
+      onClick={()=> handleUserToggle()}
+      disabled = {!userHasAce}
+      >
+        Change value of ace to {userHighAce ? 1 : 11}
+      </button>
       <button
         type="button"
         onClick={() => handleClick()}
@@ -64,7 +83,7 @@ export function BlackJack() {
       >
         userCards
       </button>
-      {totalCards(userCards)}
+      {sumOfUserCards}
       <div>
         <button type="button" onClick={() => handleHold()}>
           Hold
@@ -74,7 +93,13 @@ export function BlackJack() {
       {userCards.map((i) => {
         return displayCard(i.suit, i.rank)
       })}</div>
-
+   <button
+      type="button"
+      onClick={()=> handleHouseToggle()}
+      disabled = {!houseHasAce}
+      >
+        Change value of ace to {houseHighAce ? 1 : 11}
+      </button>
       <button
         type="button"
         onClick={() => handleClick2()}
@@ -82,7 +107,7 @@ export function BlackJack() {
       >
         houseCards
       </button>
-      {totalCards(houseCards)}
+      {sumOfHouseCards}
     
       <div className="playingCards faceImages">
           {houseCards.map((i) => {

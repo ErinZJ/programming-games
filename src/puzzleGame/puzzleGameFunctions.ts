@@ -1,4 +1,4 @@
-import { Card } from "./cardInterfaces"
+import { Card } from "../shared/cardInterfaces"
 
 export const suitsToUnicode = ( suit:string, rank:string|number)=>{
     if (rank == "k" || rank == "q" || rank == "j" ){
