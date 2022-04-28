@@ -1,5 +1,5 @@
-import { suitsToUnicode } from "./cardFunctions";
-import { Rank, Suit } from "./cardInterfaces";
+import { suitsToUnicode } from "../blackJack/cardFunctions";
+import { Rank, Suit } from "../blackJack/cardInterfaces";
 
 export interface Point {
   x: number;

@@ -37,7 +37,7 @@ export const getValueOfCard = (val: Rank): number => {
     return result[0];
   };
   
-  export const gameIsOver = (userHasHold, sumOfUserCards, sumOfHouseCards) => {
+  export const isGameOver = (userHasHold:Boolean, sumOfUserCards:Number, sumOfHouseCards:Number) => {
     if (sumOfUserCards > 21 || sumOfHouseCards > 21) {
       return true;
     }
@@ -50,8 +50,9 @@ export const getValueOfCard = (val: Rank): number => {
     return false;
   };
 export const gameResults = (sumOfHouseCards,sumOfUserCards)=>{
+  console.log("gameResults")
     if (sumOfUserCards > 21 ){
-        return "You lose"
+        return "You Lose"
     }
     if (sumOfHouseCards > 21){
         return "You Win"
@@ -83,8 +84,8 @@ if (rank == "k" || rank == "q" || rank == "j" ){
 
 
 }
-  let suites:Suit[] = ["spades", "clubs", "diams", "hearts"];
-  const valuesOfSuites:Rank[] = [
+  export let suites:Suit[] = ["spades", "clubs", "diams", "hearts"];
+  export const valuesOfSuites:Rank[] = [
     "a",
     2,
     3,

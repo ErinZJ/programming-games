@@ -2,7 +2,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { BlackJack } from './blackJack';
-import { PuzzleGame } from './blackJack/puzzle';
+import { PuzzleGame } from './puzzleGame/puzzle';
 import { Home } from './home';
 
 function App() {

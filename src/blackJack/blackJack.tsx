@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import {
   cardsDealt,
-  gameIsOver,
+  isGameOver,
   gameResults,
   suitesAndValues,
   suitsToUnicode,
@@ -53,7 +53,7 @@ export function BlackJack() {
   const sumOfHouseCards = totalCards(houseCards);
   const canHousePlay = sumOfHouseCards <= 16;
 
-  const isGameOver = gameIsOver(userHasHold, sumOfUserCards, sumOfHouseCards);
+  const isGame = isGameOver(userHasHold, sumOfUserCards, sumOfHouseCards);
 
   return (
     <div>
@@ -92,8 +92,9 @@ export function BlackJack() {
       <button type="button" onClick={() => handleReset()}>
         Reset
       </button>
-      <div>{isGameOver ? "Game Over" : ""}</div>
-      <div>{isGameOver && gameResults(sumOfHouseCards, sumOfUserCards)}</div>
+     
+      <div>{isGame ? "Game Over" :false}</div>
+      <div>{isGame && gameResults(sumOfHouseCards, sumOfUserCards)}</div>
     </div>
   );
 }
