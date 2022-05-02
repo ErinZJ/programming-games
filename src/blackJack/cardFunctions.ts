@@ -54,7 +54,7 @@ export const isGameOver = (
   }
   return false;
 };
-export const gameResults = (sumOfHouseCards, sumOfUserCards) => {
+export const gameResults = (sumOfHouseCards:number, sumOfUserCards:number) => {
   console.log("gameResults");
   if (sumOfUserCards > 21) {
     return "You Lose";
@@ -97,6 +97,14 @@ export const checkForAce = (cards:Card[]):boolean=> {
   return false
 
 }
+export const totalCards = (cards: Card[],highAce:boolean) => {
+  let sumOfCards = 0;
+  for (let index = 0; index < cards.length; index++) {
+    const element = cards[index];
+    sumOfCards = sumOfCards + getValueOfCard(element.rank,highAce);
+  }
+  return sumOfCards;
+};
 export let suites: Suit[] = ["spades", "clubs", "diams", "hearts"];
 export const valuesOfSuites: Rank[] = [
   "a",
