@@ -25,7 +25,6 @@ const displayCard = (suit:string, rank:Rank)=>{
     hand:Hand;
   }
 export function BlackJackCards({dealCard,toggleHighAce,canPlay, hand}:BlackJackCards) {
-  console.log("hand",hand)
   const handleClick = () => {
     dealCard();
   };
@@ -50,8 +49,9 @@ const hasAce = checkForAce(hand.cards)
         type="button"
         onClick={() => handleClick()}
         disabled={!canPlay}
+        data-cy="hit-button"
       >
-        cards
+        Hit
       </button>
       {hand.sumOfCards}
      
@@ -59,8 +59,8 @@ const hasAce = checkForAce(hand.cards)
       {hand.cards.map((i) => {
         return displayCard(i.suit, i.rank)
       })}</div>
-  
-      {suitesAndValues.length}
+
+      
     </div>
   );
 }

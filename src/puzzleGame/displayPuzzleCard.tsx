@@ -43,6 +43,9 @@ let isClickable =  !!clickableCards.find(element=>
   }
   return (
     <div
+      data-clickable={isClickable}
+      data-x={currentPoint.x}
+      data-y={currentPoint.y}
       className={`card rank-${rank} ${suit}`}
       onClick={() => handleOnClick()}
     >

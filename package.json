@@ -23,6 +23,7 @@
     "test": "jest",
     "eject": "react-scripts eject",
     "test:watch": "yarn jest --watchAll --verbose",
+    "cy:open":"yarn run cypress open",
     "test-ci": "jest $TEST_FILES --runInBand --ci --reporters=default --reporters=jest-junit --coverage"
   },
   "eslintConfig": {
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^9.6.0",
     "jest": "^27.5.1",
     "jest-canvas-mock": "^2.3.1",
     "ts-jest": "^27.1.4"

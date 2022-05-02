@@ -1,21 +1,17 @@
 import { useEffect } from "react";
 import { BlackJackCards } from "./blackJackCards";
-import {
-  gameResults,
-} from "./cardFunctions";
+import { gameResults, suitesAndValues } from "./cardFunctions";
 import { useBlackJackLogic } from "./useBlackJackLogic";
-
 
 export function BlackJack() {
   const logic = useBlackJackLogic();
-  
 
   useEffect(() => {
     logic.resetGame();
   }, []);
 
   const handleReset = () => {
-    logic.resetGame()
+    logic.resetGame();
   };
   const handleHold = () => {
     logic.setUserHasHold(true);
@@ -23,30 +19,35 @@ export function BlackJack() {
 
   return (
     <div>
-      <h2>User</h2>
-      <BlackJackCards
-        canPlay={logic.canUserPlay}
-        hand={logic.userHand}
-        toggleHighAce={logic.toggleUserHighAce}
-        dealCard={logic.dealUserCard}
-      ></BlackJackCards>
-      <button type="button" onClick={() => handleHold()}>
-        Hold
-      </button>
-      <h2>House</h2>
-      <BlackJackCards
+      <div id="user">
+        <h2>User</h2>
+        <BlackJackCards
+          canPlay={logic.canUserPlay}
+          hand={logic.userHand}
+          toggleHighAce={logic.toggleUserHighAce}
+          dealCard={logic.dealUserCard}
+        ></BlackJackCards>
+        <button type="button" onClick={() => handleHold()}>
+          Hold
+        </button>
+      </div>
+      <div id="house">
+        <h2>House</h2>
+        <BlackJackCards
           canPlay={logic.canHousePlay}
           hand={logic.houseHand}
           toggleHighAce={logic.toggleHouseHighAce}
           dealCard={logic.dealHouseCard}
-      ></BlackJackCards>
+        ></BlackJackCards>
+      </div>
       <button type="button" onClick={() => handleReset()}>
         Reset
       </button>
-
+      <div id="cardsInDeck">{suitesAndValues.length}</div>
       <div>{logic.isGame ? "Game Over" : false}</div>
       <div>
-        {logic.isGame && gameResults(logic.houseHand.sumOfCards, logic.userHand.sumOfCards)}
+        {logic.isGame &&
+          gameResults(logic.houseHand.sumOfCards, logic.userHand.sumOfCards)}
       </div>
     </div>
   );
