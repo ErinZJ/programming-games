@@ -19,33 +19,22 @@ const displayCard = (suit:string, rank:Rank)=>{
          </div>;
   }
   interface BlackJackCards{
-    canPlayFn: (sumOfCards:number)=>boolean;
-    hand: Hand;
-    setHand:React.Dispatch<React.SetStateAction<Hand>>;
+    dealCard:()=>void
+    toggleHighAce:()=>void;
+    canPlay:boolean;
+    hand:Hand;
   }
-export function BlackJackCards({canPlayFn,hand,setHand}:BlackJackCards) {
-  
-  
-  const [highAce, setHighAce] = useState(false);
-
-
+export function BlackJackCards({dealCard,toggleHighAce,canPlay, hand}:BlackJackCards) {
+  console.log("hand",hand)
   const handleClick = () => {
-    const result = cardsDealt(suitesAndValues);
-    const newCards =[...hand.cards, result];
-    const sumOfCards = totalCards(newCards,highAce);
-    setHand({highAce, sumOfCards,cards:newCards });
-    
-    
+    dealCard();
   };
  
  
   const handleToggle = ()=>{
-    setHighAce(!highAce)
-    
+    toggleHighAce()
   }
-  const canPlay = canPlayFn(hand.sumOfCards);
-//   const canUserPlay = !(sumOfUserCards >= 21) && !userHasHold;
-//   const canHousePlay = sumOfHouseCards <= 16;
+
 
 const hasAce = checkForAce(hand.cards)
   return (
@@ -55,7 +44,7 @@ const hasAce = checkForAce(hand.cards)
       onClick={()=> handleToggle()}
       disabled = {!hasAce}
       >
-        Change value of ace to {highAce ? 1 : 11}
+        Change value of ace to {hand.highAce ? 1 : 11}
       </button>
       <button
         type="button"

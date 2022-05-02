@@ -1,86 +1,52 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { Card, Hand, Rank } from "../shared/cardInterfaces";
+import { useEffect } from "react";
 import { BlackJackCards } from "./blackJackCards";
 import {
-  cardsDealt,
-  isGameOver,
   gameResults,
-  suitesAndValues,
-  suitsToUnicode,
-  getValueOfCard,
-  checkForAce,
-  totalCards,
 } from "./cardFunctions";
+import { useBlackJackLogic } from "./useBlackJackLogic";
 
-const defaultHand: Hand = { highAce: false, cards: [], sumOfCards: 0 };
+
 export function BlackJack() {
-  const [userHasHold, setUserHasHold] = useState(false);
-  const [userHand, setUserHand] = useState<Hand>({ ...defaultHand });
-  const [houseHand, setHouseHand] = useState<Hand>({ ...defaultHand });
+  const logic = useBlackJackLogic();
+  
 
   useEffect(() => {
-    handleReset();
+    logic.resetGame();
   }, []);
 
   const handleReset = () => {
-    const newUserCards = [
-      cardsDealt(suitesAndValues),
-      cardsDealt(suitesAndValues),
-    ];
-    setUserHand({
-      ...defaultHand,
-      cards: newUserCards,
-      sumOfCards: totalCards(newUserCards, defaultHand.highAce),
-    });
-    const newHouseCards = [
-      cardsDealt(suitesAndValues),
-      cardsDealt(suitesAndValues),
-    ];
-    setHouseHand({
-      ...defaultHand,
-      cards: newHouseCards,
-      sumOfCards: totalCards(newHouseCards, defaultHand.highAce),
-    });
-    setUserHasHold(false);
+    logic.resetGame()
   };
   const handleHold = () => {
-    setUserHasHold(true);
+    logic.setUserHasHold(true);
   };
-
-  const isGame = isGameOver(
-    userHasHold,
-    userHand.sumOfCards,
-    houseHand.sumOfCards
-  );
-
-  const canUserPlay = (sumOfCards) => !(sumOfCards >= 21) && !userHasHold;
-  const canHousePlay = (sumOfCards) => sumOfCards <= 16;
 
   return (
     <div>
       <h2>User</h2>
       <BlackJackCards
-        canPlayFn={canUserPlay}
-        hand={userHand}
-        setHand={setUserHand}
+        canPlay={logic.canUserPlay}
+        hand={logic.userHand}
+        toggleHighAce={logic.toggleUserHighAce}
+        dealCard={logic.dealUserCard}
       ></BlackJackCards>
       <button type="button" onClick={() => handleHold()}>
         Hold
       </button>
       <h2>House</h2>
       <BlackJackCards
-        canPlayFn={canHousePlay}
-        hand={houseHand}
-        setHand={setHouseHand}
+          canPlay={logic.canHousePlay}
+          hand={logic.houseHand}
+          toggleHighAce={logic.toggleHouseHighAce}
+          dealCard={logic.dealHouseCard}
       ></BlackJackCards>
       <button type="button" onClick={() => handleReset()}>
         Reset
       </button>
 
-      <div>{isGame ? "Game Over" : false}</div>
+      <div>{logic.isGame ? "Game Over" : false}</div>
       <div>
-        {isGame && gameResults(houseHand.sumOfCards, userHand.sumOfCards)}
+        {logic.isGame && gameResults(logic.houseHand.sumOfCards, logic.userHand.sumOfCards)}
       </div>
     </div>
   );
