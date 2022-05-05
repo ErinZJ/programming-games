@@ -14,9 +14,9 @@ describe("BlackJack page", () => {
     cy.get('#user [data-cy="hit-button"]').should("be.enabled");
   });
   it("count of cards decreases when resest is clicked", async () => {
-    await cy.get(".card");
-    await cy.get("#cardsInDeck").should("have.text",48);
+    cy.get(".card");
+    cy.get("#cardsInDeck").should("have.text", 48);
     cy.contains("Reset").click();
-    await cy.get("#cardsInDeck").should("have.text",44);
+    cy.get("#cardsInDeck").should("have.text", 44);
   });
 });

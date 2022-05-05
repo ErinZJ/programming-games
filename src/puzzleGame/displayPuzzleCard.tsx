@@ -23,8 +23,8 @@ export const DisplayCard = ({
 }: DisplayCardProps) => {
     
 let isClickable =  !!clickableCards.find(element=> 
-    element.x == currentPoint.x 
-    && element.y == currentPoint.y)
+    element.x === currentPoint.x 
+    && element.y === currentPoint.y)
   
 //   let isClickable = false;
 //   for (let index = 0; index < clickableCards.length; index++) {
@@ -39,7 +39,8 @@ let isClickable =  !!clickableCards.find(element=>
     }
   };
   if (rank === "a"){
-      return <div className="empty-card" ></div>
+      return <div data-x={currentPoint.x}
+      data-y={currentPoint.y} className="empty-card" ></div>
   }
   return (
     <div

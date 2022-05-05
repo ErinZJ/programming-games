@@ -3,13 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^16.11.26",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
+    
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "6",
@@ -23,7 +17,7 @@
     "test": "jest",
     "eject": "react-scripts eject",
     "test:watch": "yarn jest --watchAll --verbose",
-    "cy:open":"yarn run cypress open",
+    "cy:open": "yarn run cypress open",
     "test-ci": "jest $TEST_FILES --runInBand --ci --reporters=default --reporters=jest-junit --coverage"
   },
   "eslintConfig": {
@@ -45,9 +39,19 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@types/jest": "^27.5.0",
+    "@types/node": "^16.11.26",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
     "cypress": "^9.6.0",
     "jest": "^27.5.1",
     "jest-canvas-mock": "^2.3.1",
     "ts-jest": "^27.1.4"
+    
   }
 }
