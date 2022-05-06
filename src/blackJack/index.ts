@@ -1,5 +1,5 @@
 
 
-export * from './blackJack'
+export * from './blackJackGame'
 export * from './cardFunctions'
 

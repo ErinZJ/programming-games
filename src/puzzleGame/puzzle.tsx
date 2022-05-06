@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { cardsDealt, suitsToUnicode } from "../puzzleGame/puzzleGameFunctions";
+import { cardsDealt } from "../puzzleGame/puzzleGameFunctions";
 import { Point, DisplayCard } from "./displayPuzzleCard";
 import { Card } from "../shared/cardInterfaces";
 
@@ -82,7 +82,7 @@ export const PuzzleGame = () => {
       const rowOfCards = puzzlePieces[y];
       for (let x = 0; x < rowOfCards.length; x++) {
         const card = rowOfCards[x];
-        if (card.value == counter){
+        if (card.value === counter){
           counter++
         }
         else return false 
