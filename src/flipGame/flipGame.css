@@ -1,0 +1,17 @@
+.tileContainer {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  width: 169px;
+  font-size: 40px;
+}
+.tile.hidden {
+  z-index: 1;
+  background-color: aqua;
+  opacity: 1;
+  border: 1px solid black;
+}
+.tile {
+  height: 40px;
+  width: 40px;
+}
