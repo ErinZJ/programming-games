@@ -9,6 +9,9 @@ export function Home() {
      <div>
       <a href="puzzle-game">puzzle-game</a>
       </div>
+      <div>
+        <a href="flip-Game">flipGame</a>
+      </div>
       </div>
     );
   }
