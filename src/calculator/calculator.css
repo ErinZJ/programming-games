@@ -1,0 +1,22 @@
+.outerContainer {
+  border: 2px solid black;
+  width: 180px;
+}
+
+.buttonStyle {
+  border: 1px solid darkblue;
+  height: 40px;
+  width: 40px;
+  background-color: lightblue;
+  font-size: 20px;
+}
+.container {
+  border: 2px solid black;
+  width: 200px;
+}
+.row {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
