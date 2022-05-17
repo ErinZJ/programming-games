@@ -63,13 +63,16 @@ export function Calulator() {
     setValue(value + ".");
   };
   return (
-    <div>
-      <div className="container">
+    <div className="outerContainer">
+      <div className="heading">
         <h1>Calculator</h1>
-
-        <div id="values">{operator ? value2 : value}</div>
-        <div id="total">{total}</div>
-        <div className="outerContainer">
+      </div>
+      <div>
+        <div className="value">
+          <div id="values">{operator ? value2 : value}</div>
+          <div id="total">{total}</div>
+        </div>
+        <div className="container">
           <div className="row">
             <button
               data-cy="clear-button"
@@ -79,6 +82,7 @@ export function Calulator() {
             >
               C
             </button>
+
             <button
               className="buttonStyle"
               type="button"
@@ -102,7 +106,7 @@ export function Calulator() {
               /
             </button>
           </div>
-          <div>
+          <div className="row">
             <button
               className="buttonStyle"
               type="button"
@@ -132,7 +136,7 @@ export function Calulator() {
               *
             </button>
           </div>
-          <div>
+          <div className="row">
             <button
               className="buttonStyle"
               type="button"
@@ -162,7 +166,7 @@ export function Calulator() {
               -
             </button>
           </div>
-          <div>
+          <div className="row">
             <button
               className="buttonStyle"
               type="button"
@@ -192,7 +196,11 @@ export function Calulator() {
               +
             </button>
           </div>
-          <div>
+          <div className="row">
+            <button className="buttonStyle" type="button">
+              {" "}
+              √{" "}
+            </button>
             <button
               className="buttonStyle"
               type="button"

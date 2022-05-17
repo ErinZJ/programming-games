@@ -1,17 +1,31 @@
 .tileContainer {
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid black;
-  width: 169px;
-  font-size: 40px;
+  border: 1px solid darkblue;
+  width: 168px;
+  font-size: 32px;
 }
 .tile.hidden {
   z-index: 1;
-  background-color: aqua;
+  background-color: rgba(0, 110, 255, 0.623);
   opacity: 1;
   border: 1px solid black;
 }
 .tile {
   height: 40px;
   width: 40px;
+}
+.counter1 {
+  border: 1px solid black;
+  width: 168px;
+  font-size: 17px;
+  border-radius: 5px;
+}
+.counter2 {
+  border: 1px solid black;
+  width: 168px;
+  border-top: none;
+  border-bottom: none;
+  font-size: 17px;
+  border-radius: 5px;
 }

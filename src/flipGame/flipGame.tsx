@@ -89,7 +89,9 @@ export function FlipGame() {
 
   return (
     <div>
-      flipGame
+      <h1>FlipGame</h1>
+      <div className="counter1">Moves:{count}</div>
+      <div className="counter2">Time:{timer}</div>
       <div className="tileContainer">
         {tiles.map((tile, index) => (
           <div
@@ -100,8 +102,6 @@ export function FlipGame() {
           </div>
         ))}
       </div>
-      <div>Moves:{count}</div>
-      <div>Time:{timer}</div>
       {gameOver ? "Game Over" : false}
     </div>
   );
