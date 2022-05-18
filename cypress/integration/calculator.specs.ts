@@ -24,7 +24,7 @@ describe("Calculator Page", () => {
   });
   it("dot is added when clicked", () => {
     cy.contains("1").click();
-    cy.get('[data-cy="dot-button"]').click();
+    cy.get("#dot ").click();
     cy.contains("4").click();
     cy.get("#values").should("have.text", 1.4);
   });

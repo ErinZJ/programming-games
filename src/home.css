@@ -1,0 +1,50 @@
+.outerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gameButton {
+  border-radius: 7px;
+  border: 2px solid black;
+  margin: 2px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  background: rgba(128, 0, 128, 0.315);
+}
+.gameButton:hover {
+  background: lightpink;
+}
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+h1 {
+  font-size: 30px;
+  text-decoration: underline;
+}
+.innerBox {
+  border: 2px solid black;
+  height: 200px;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+
+  margin: 10px;
+}
