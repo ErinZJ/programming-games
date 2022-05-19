@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { cardsDealt } from "../blackJack";
 import "./flipGame.css";
 
 interface Tile {
@@ -88,21 +89,28 @@ export function FlipGame() {
   const gameOver = isGameOver(tiles);
 
   return (
-    <div>
-      flipGame
-      <div className="tileContainer">
-        {tiles.map((tile, index) => (
-          <div
-            className="tile hidden"
-            onClick={() => handleTileClick(tile, index)}
-          >
-            {!tile.isMatched && tile.isHidden ? "" : tile.emoji}
-          </div>
-        ))}
+    <div className="outerTileContainer">
+      <h1>FlipGame</h1>
+      <div className="innerTileContainer">
+        <div className="counter1">Moves:{count}</div>
+        <div className="counter2">Time:{timer}</div>
+        <div className="tileContainer">
+          {tiles.map((tile, index) => (
+            <div
+              className={`flip-card ${
+                !tile.isMatched && tile.isHidden ? "" : "hasClicked"
+              }`}
+              onClick={() => handleTileClick(tile, index)}
+            >
+              <div className="flip-card-inner">
+                <div className=" flip-card-front hidden"></div>
+                <div className="flip-card-back">{tile.emoji}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {gameOver ? "Game Over" : false}
       </div>
-      <div>Moves:{count}</div>
-      <div>Time:{timer}</div>
-      {gameOver ? "Game Over" : false}
     </div>
   );
 }

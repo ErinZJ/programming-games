@@ -1,17 +1,81 @@
 .tileContainer {
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid black;
-  width: 169px;
-  font-size: 40px;
+  border: 1px solid darkblue;
+  width: 168px;
+  font-size: 32px;
+  border-radius: 5px;
 }
-.tile.hidden {
-  z-index: 1;
-  background-color: aqua;
-  opacity: 1;
-  border: 1px solid black;
-}
+
 .tile {
   height: 40px;
   width: 40px;
+  background: white;
+}
+.flip-card.hasClicked .flip-card-inner {
+  position: relative;
+  transform: rotateY(180deg);
+}
+
+.counter1 {
+  border: 2px solid rgb(33, 26, 97);
+  width: 168px;
+  height: 25px;
+  font-size: 17px;
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+.counter2 {
+  border: 2px solid rgb(33, 26, 97);
+  width: 168px;
+  height: 25px;
+  border-top: none;
+  border-bottom: none;
+  font-size: 17px;
+  border-radius: 5px;
+  background: grey;
+  display: flex;
+  justify-content: space-around;
+}
+.flip-card-back {
+  /* background-color: #2980b9; */
+  color: white;
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.flip-card-inner {
+  height: 40px;
+  width: 40px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(33, 26, 97);
+  border-radius: 5px;
+  background: white;
+}
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+}
+.outerTileContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.innerTileContainer {
+  border: 2px solid black;
+  width: 185px;
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: grey;
+  flex-direction: column;
 }
