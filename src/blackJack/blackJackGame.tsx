@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BlackJackCards } from "./blackJackCards";
 import { gameResults, suitesAndValues } from "./cardFunctions";
 import { useBlackJackLogic } from "./useBlackJackLogic";
+import "./blackJackGame.css";
 
 export function BlackJack() {
   const logic = useBlackJackLogic();
@@ -18,36 +19,55 @@ export function BlackJack() {
   };
 
   return (
-    <div>
-      <div id="user">
-        <h2>User</h2>
-        <BlackJackCards
-          canPlay={logic.canUserPlay}
-          hand={logic.userHand}
-          toggleHighAce={logic.toggleUserHighAce}
-          dealCard={logic.dealUserCard}
-        ></BlackJackCards>
-        <button type="button" onClick={() => handleHold()}>
-          Hold
+    <div className="container">
+      <h1>BlackJack</h1>
+      <div className="gameContainer">
+        <div className="outerGameContainer">
+          <div className="innerGameContainer" id="user">
+            <h2>User</h2>
+            <div className="cardContainer">
+              <BlackJackCards
+                canPlay={logic.canUserPlay}
+                hand={logic.userHand}
+                toggleHighAce={logic.toggleUserHighAce}
+                dealCard={logic.dealUserCard}
+              ></BlackJackCards>
+              <button
+                className="gameButtons"
+                type="button"
+                onClick={() => handleHold()}
+              >
+                Hold
+              </button>{" "}
+            </div>
+          </div>
+          <div className="innerGameContainer" id="house">
+            <h2>House</h2>
+            <div className="cardContainer">
+              <BlackJackCards
+                canPlay={logic.canHousePlay}
+                hand={logic.houseHand}
+                toggleHighAce={logic.toggleHouseHighAce}
+                dealCard={logic.dealHouseCard}
+              ></BlackJackCards>
+            </div>
+          </div>
+        </div>
+        <button
+          className="gameButtons"
+          type="button"
+          onClick={() => handleReset()}
+        >
+          Reset
         </button>
-      </div>
-      <div id="house">
-        <h2>House</h2>
-        <BlackJackCards
-          canPlay={logic.canHousePlay}
-          hand={logic.houseHand}
-          toggleHighAce={logic.toggleHouseHighAce}
-          dealCard={logic.dealHouseCard}
-        ></BlackJackCards>
-      </div>
-      <button type="button" onClick={() => handleReset()}>
-        Reset
-      </button>
-      <div id="cardsInDeck">{suitesAndValues.length}</div>
-      <div>{logic.isGame ? "Game Over" : false}</div>
-      <div>
-        {logic.isGame &&
-          gameResults(logic.houseHand.sumOfCards, logic.userHand.sumOfCards)}
+        <div className="gameTotals" id="cardsInDeck">
+          Cards Left {suitesAndValues.length}
+        </div>
+        <div>{logic.isGame ? "Game Over" : false}</div>
+        <div>
+          {logic.isGame &&
+            gameResults(logic.houseHand.sumOfCards, logic.userHand.sumOfCards)}
+        </div>
       </div>
     </div>
   );

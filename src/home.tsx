@@ -4,9 +4,9 @@ export function Home() {
     <div className="outerBox">
       <h1> Programming Games</h1>
       <div className="box">
-        <div className="innerBox">
+        <a href="blackjack" className="innerBox">
           <div className="gameButton">
-            <a href="blackjack">blackjack</a>
+            <a>blackjack</a>
           </div>
           <div>
             <img
@@ -16,10 +16,10 @@ export function Home() {
               height="138px"
             />
           </div>
-        </div>
-        <div className="innerBox">
+        </a>
+        <a href="puzzle-game" className="innerBox">
           <div className="gameButton">
-            <a href="puzzle-game">puzzle-game</a>
+            <a>puzzle-game</a>
           </div>
           <div>
             <img
@@ -29,10 +29,10 @@ export function Home() {
               height="138px"
             />
           </div>
-        </div>
-        <div className="innerBox">
+        </a>
+        <a href="flip-Game" className="innerBox">
           <div className="gameButton">
-            <a href="flip-Game">flip-game</a>
+            <a>flip-game</a>
           </div>
           <div>
             <img
@@ -42,20 +42,28 @@ export function Home() {
               height="138px"
             />
           </div>
-        </div>
-        <div className="innerBox">
+        </a>
+        <a href="calculator" className="innerBox">
           <div className="gameButton">
-            <a href="calculator">calculator</a>
+            <a>calculator</a>
           </div>
-          <div>
-            <img
-              src="../calculator.jpeg"
-              alt="blackjack"
-              width="150px"
-              height="138px"
-            />
+          <img
+            src="../calculator.jpeg"
+            alt="blackjack"
+            width="150px"
+            height="138px"
+          />
+        </a>
+        <a href="whack-a-mouse" className="innerBox">
+          <div className="gameButton">
+            <a>Whack-A-Mouse</a>
           </div>
-        </div>
+        </a>
+        <a href="tic-tac-toe" className="innerBox">
+          <div className="gameButton">
+            <a>Tic-tac-toe</a>
+          </div>
+        </a>
       </div>
     </div>
   );

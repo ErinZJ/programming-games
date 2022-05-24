@@ -1,0 +1,81 @@
+.outerGameContainer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.innerGameContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+}
+.cardContainer {
+  border: 2px solid grey;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+  padding-top: 30px;
+  width: 500px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 15px 3px grey;
+  background-color: rgba(139, 199, 223, 0.712);
+}
+.gameContainer {
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 1200px;
+  border-radius: 10px;
+  background-color: rgba(125, 178, 199, 0.603);
+  height: 500px;
+}
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  flex-direction: column;
+}
+h2 {
+  display: flex;
+  align-items: center;
+  text-shadow: 0px 3px 10px rgba(118, 118, 134, 0.712);
+}
+.playingCards.faceImages.blackJack {
+  display: flex;
+  justify-content: center;
+  padding-left: 7px;
+  padding-top: 45px;
+}
+.gameButtons {
+  border: 2px solid rgb(6, 20, 85);
+  margin: 5px;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 15px 3px grey;
+  background-color: rgb(180, 179, 179);
+}
+.outerButton {
+  display: flex;
+}
+.gameTotals {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(180, 179, 179);
+  width: 180px;
+}
+.gameButtons:hover {
+  background-color: cadetblue;
+}
+.gameBox {
+  width: 508px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -35,12 +35,11 @@
   border-bottom: none;
   font-size: 17px;
   border-radius: 5px;
-  background: grey;
+  background: white;
   display: flex;
   justify-content: space-around;
 }
 .flip-card-back {
-  /* background-color: #2980b9; */
   color: white;
   transform: rotateY(180deg);
 }
