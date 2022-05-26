@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { cardsDealt } from "../blackJack";
+import useInterval from "use-interval";
 import "./flipGame.css";
 
 interface Tile {
@@ -7,8 +7,7 @@ interface Tile {
   isHidden: boolean;
   isMatched: boolean;
 }
-const emojis = ["🥔", "🍒", "🥑", "🌽", "🥕", "🍇", "🍉", "🍌", "🥭", "🍍"];
-let IntialTiles = [
+const IntialTiles = [
   "🥔",
   "🍒",
   "🥑",
@@ -51,6 +50,8 @@ export function FlipGame() {
   const [canClick, setCanClick] = useState(true);
   const [count, setCount] = useState(0);
   const [timer, setTimer] = useState(0);
+  const [firstClick, setFirstClick] = useState(false);
+
   useEffect(() => {
     setTiles(TilesDisplayed(IntialTiles));
   }, []);
@@ -85,9 +86,16 @@ export function FlipGame() {
       }, 2000);
     }
     setTiles([...tiles]);
+    setFirstClick(true);
   };
   const gameOver = isGameOver(tiles);
-
+  useInterval(
+    () => {
+      setTimer(timer + 1);
+    },
+    !gameOver && firstClick ? 1000 : null,
+    true
+  );
   return (
     <div className="outerTileContainer">
       <h1>FlipGame</h1>
@@ -114,7 +122,6 @@ export function FlipGame() {
     </div>
   );
 }
-
 //randomise tiles-done
 //hide and reveal the hidden tile-done
 //onclick that stores the seleceted tile - done
