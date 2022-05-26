@@ -1,17 +1,6 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { Card, Hand, Rank } from "../shared/cardInterfaces";
+import { Hand, Rank } from "../shared/cardInterfaces";
 
-import {
-  cardsDealt,
-  isGameOver,
-  gameResults,
-  suitesAndValues,
-  suitsToUnicode,
-  getValueOfCard,
-  checkForAce,
-  totalCards,
-} from "./cardFunctions";
+import { suitsToUnicode, checkForAce } from "./cardFunctions";
 
 const displayCard = (suit: string, rank: Rank) => {
   return (

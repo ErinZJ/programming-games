@@ -1,15 +1,15 @@
-.outerGameContainer {
+.blackJack .outerGameContainer {
   display: flex;
   align-content: center;
   justify-content: center;
 }
-.innerGameContainer {
+.blackJack .innerGameContainer {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: 20px;
 }
-.cardContainer {
+.blackJack .cardContainer {
   border: 2px solid grey;
   display: flex;
   justify-content: flex-start;
@@ -22,7 +22,7 @@
   box-shadow: 3px 3px 15px 3px grey;
   background-color: rgba(139, 199, 223, 0.712);
 }
-.gameContainer {
+.blackJack .gameContainer {
   border: 2px solid black;
   display: flex;
   align-items: center;
@@ -33,25 +33,25 @@
   background-color: rgba(125, 178, 199, 0.603);
   height: 500px;
 }
-.container {
+.blackJack.container {
   align-items: center;
   display: flex;
   justify-content: space-around;
   margin-top: 40px;
   flex-direction: column;
 }
-h2 {
+.blackJack h2 {
   display: flex;
   align-items: center;
   text-shadow: 0px 3px 10px rgba(118, 118, 134, 0.712);
 }
-.playingCards.faceImages.blackJack {
+.blackJack .playingCards.faceImages.blackJack {
   display: flex;
   justify-content: center;
   padding-left: 7px;
   padding-top: 45px;
 }
-.gameButtons {
+.blackJack .gameButtons {
   border: 2px solid rgb(6, 20, 85);
   margin: 5px;
   font-size: 15px;
@@ -59,10 +59,10 @@ h2 {
   box-shadow: 3px 3px 15px 3px grey;
   background-color: rgb(180, 179, 179);
 }
-.outerButton {
+.blackJack .outerButton {
   display: flex;
 }
-.gameTotals {
+.blackJack .gameTotals {
   display: flex;
   justify-content: space-around;
   border: 2px solid black;
@@ -70,10 +70,10 @@ h2 {
   background-color: rgb(180, 179, 179);
   width: 180px;
 }
-.gameButtons:hover {
+.blackJack .gameButtons:hover {
   background-color: cadetblue;
 }
-.gameBox {
+.blackJack .gameBox {
   width: 508px;
   display: flex;
   flex-direction: column;
