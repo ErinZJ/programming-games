@@ -56,7 +56,7 @@ export function Home() {
         </a>
         <a href="whack-a-mouse" className="innerBox">
           <div className="gameButton">
-            <a>Whack-A-Mouse</a>
+            <a>Whack-A-Mouse </a>
           </div>
         </a>
         <a href="tic-tac-toe" className="innerBox">

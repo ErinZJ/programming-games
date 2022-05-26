@@ -7,6 +7,7 @@
   display: flex;
   width: 500px;
   align-content: center;
+  cursor: url(https://cdn.custom-cursor.com/db/4655/32/arrow2662.png), auto !important;
 }
 .gameTile {
   width: 120px;

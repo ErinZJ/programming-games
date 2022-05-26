@@ -19,7 +19,7 @@ export function BlackJack() {
   };
 
   return (
-    <div className="container">
+    <div className="blackJack container">
       <h1>BlackJack</h1>
       <div className="gameContainer">
         <div className="outerGameContainer">
