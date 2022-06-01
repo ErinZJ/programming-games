@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useInterval from "use-interval";
-import "./flipGame.css";
+import "./flipGame.scss";
 
 interface Tile {
   emoji: string;
@@ -97,7 +97,7 @@ export function FlipGame() {
     true
   );
   return (
-    <div className="outerTileContainer">
+    <div className="flip-game outerTileContainer">
       <h1>FlipGame</h1>
       <div className="innerTileContainer">
         <div className="counter1">Moves:{count}</div>

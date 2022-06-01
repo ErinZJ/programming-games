@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./calculator.css";
+import "./calculator.scss";
 const calc = (val: number, val2: number, operator: string) => {
   switch (operator) {
     case "/":
@@ -65,7 +65,7 @@ export function Calulator() {
   };
 
   return (
-    <div className="alignment">
+    <div className="calculator alignment">
       <div className="heading">
         <h1>Calculator</h1>
       </div>

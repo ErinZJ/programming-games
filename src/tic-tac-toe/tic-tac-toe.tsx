@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./tic-tac-toe.css";
+import "./tic-tac-toe.scss";
 
 const computerTurn = (gameBoxes: string[]) => {
   if (!gameBoxes.some((val) => val === "")) {
@@ -75,7 +75,7 @@ export function TicTacToe() {
   const areYouAWinner = gameWinner(gameBoxes, "X");
   const areYouALoser = gameWinner(gameBoxes, "O");
   return (
-    <div className="outerGameContainer">
+    <div className="tic-tac-toe outerGameContainer">
       <div className="innerGameContainer">
         <h2 className="ticTacToe">Tic Tac Toe</h2>
         <div className="gameBoxes">

@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
-import "./whack-a-mouse.css";
+import "./whack-a-mouse.scss";
 interface Hole {
   isHidden: boolean;
   mole: string;
@@ -50,7 +50,7 @@ export function MoleGame() {
     setHoles([{ ...hole }, { ...hole }, { ...hole }, { ...hole }, { ...hole }]);
   }, []);
   return (
-    <div className="outerGame">
+    <div className="whack-a-mouse outerGame">
       <div>
         <h1>Whack A Mouse</h1>
       </div>

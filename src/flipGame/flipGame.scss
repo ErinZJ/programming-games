@@ -1,3 +1,4 @@
+.flip-game{
 .tileContainer {
   display: flex;
   flex-wrap: wrap;
@@ -62,7 +63,7 @@
   background-color: transparent;
   perspective: 1000px;
 }
-.outerTileContainer {
+&.outerTileContainer {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -77,4 +78,4 @@
   align-items: center;
   background: grey;
   flex-direction: column;
-}
+}}

@@ -1,3 +1,4 @@
+.calculator{
 .innerContainer {
   border-top: 1px solid rgb(95, 94, 94);
   width: 200px;
@@ -46,7 +47,7 @@
   height: 35px;
   padding: 5px;
 }
-.alignment {
+&.alignment {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -60,4 +61,5 @@
   border-radius: 5px;
   border: 2px solid rgb(95, 94, 94);
   background-color: rgba(153, 150, 150, 0.383);
+}
 }
